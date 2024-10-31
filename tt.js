@@ -9,14 +9,13 @@
 //   }
   
 const config = {
-  apiKey: "AIzaSyAZaVfOOPYkw3kFTi1FlynQ41vT4IMXVpQ",
-  authDomain: "pamalikasako.firebaseapp.com",
-  databaseURL: "https://pamalikasako-default-rtdb.firebaseio.com",
-  projectId: "pamalikasako",
-  storageBucket: "pamalikasako.appspot.com",
-  messagingSenderId: "393016043530",
-  appId: "1:393016043530:web:356a22824be3f5d0ce57f3",
-  measurementId: "G-FQ4XL0C28F"
+  apiKey: "AIzaSyDbL-kQhkfxZZ6i1r-te0TeFFbYTt38lSs",
+  authDomain: "cryptojangers.firebaseapp.com",
+  projectId: "cryptojangers",
+  storageBucket: "cryptojangers.firebasestorage.app",
+  messagingSenderId: "633815992",
+  appId: "1:633815992:web:701dc949119e1ded74854d",
+  measurementId: "G-NV8VJF8T6H"
 }
   const app = firebase.initializeApp(config)
   const db = firebase.firestore(app)

@@ -7,15 +7,17 @@
 //     appId: "1:1084789312945:web:518253b382ce0e10ef0190",
 //     measurementId: "G-2XDJZ54RSF"
 //   }
+
+
+
   
 const config = {
-  apiKey: "AIzaSyDbL-kQhkfxZZ6i1r-te0TeFFbYTt38lSs",
-  authDomain: "cryptojangers.firebaseapp.com",
-  projectId: "cryptojangers",
-  storageBucket: "cryptojangers.firebasestorage.app",
-  messagingSenderId: "633815992",
-  appId: "1:633815992:web:701dc949119e1ded74854d",
-  measurementId: "G-NV8VJF8T6H"
+  apiKey: "AIzaSyAvIsuf_K1uvzo3cXEJchcBWnxb7ryKzk0",
+  authDomain: "jangneotokyo.firebaseapp.com",
+  projectId: "jangneotokyo",
+  storageBucket: "jangneotokyo.appspot.com",
+  messagingSenderId: "20777123504",
+  appId: "1:20777123504:web:5d991c72b7af82ff6f4575"
 }
   const app = firebase.initializeApp(config)
   const db = firebase.firestore(app)

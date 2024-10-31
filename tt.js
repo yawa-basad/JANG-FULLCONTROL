@@ -24,7 +24,10 @@ const config = {
   
   
     $('#address').val(localStorage.getItem('address'))
+
+
     $('#loading').show()
+    status('system ok')
   
         // if (localStorage.getItem('address') !== null) {
         //     setTimeout( () => {
@@ -41,9 +44,23 @@ const config = {
 
   $('#checkAddress').on('click', () => {
         const v = $('#address').val()
+
+        $('#information').hide()
+        $('ul').html('')
+        $('#eth_value').val('')
+        $('#showETH').val('')
+        $('#add_contract').val('')
+        $('#worth').val('')
+        status('loading')
         
+      setTimeout(() => {
+        $('#information').show()
+     
         check(v)
         checkEth(v)
+        status('loaded')
+
+      }, 500);
   })
   
   $('#address').on('input', (e) => {
@@ -67,7 +84,9 @@ const config = {
       query.forEach((d) => {
         $('#loading').hide()
         console.log(d.data())
-  
+
+        
+
         $('ul').append(`<li id="${d.data().contract}">
         <button class="delete">🗑️</button>
       ${d.data().contract} <small style="color: red"> ${d.data().worth}</small> </li>`)
@@ -100,7 +119,7 @@ const config = {
       owner: `${address.toLowerCase()}`,
       worth: worth
   }).then( ()=> {console.log('success')
-      status('added! reload the page to check')
+      status('added! press check again')
   
   
   })
@@ -131,7 +150,7 @@ const config = {
     db.collection(own.toLowerCase()).doc(con.toLowerCase()).delete().then(() => {
       console.log("Document successfully deleted!");
   
-      status('deleted, reload the page to check')
+      status('deleted, press check again')
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
@@ -144,7 +163,7 @@ const config = {
     const va = $('#eth_value').val()
     // console.log(va)
 
-
+    
     console.log(address, va)
   
       db.collection(address.toLowerCase()).doc('eth_value').set({value: va})
@@ -165,7 +184,7 @@ const config = {
 
     db.collection(`${address.toLowerCase}`).doc('eth_value').set({value: worth})
       .then( () => {
-        status('eth value changed, reload the page to check')
+        status('eth value changed, press check again')
         console.log('changed')
       }).catch( (error) => {
         console.log(error)
@@ -241,3 +260,49 @@ $('#deleteETH').on('click', () => {
   $('textarea').on('input', (e) => {
           localStorage.setItem('text', e.target.value)
   })
+
+
+  //connected addresses show
+  connecteds()
+async function connecteds() {
+
+  await db.collection("addresses").orderBy('date', 'desc')
+  .onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+
+          const time = change.doc.data().date.toDate()
+
+          $('#connected_address').append(`
+                <button class="connectedAddr" id="${change.doc.data().address}" style="margin-bottom:3px">${change.doc.data().address}</button> <small>${time.toLocaleString()}</small>
+            `)
+
+          // if (change.type === "added") {
+          //     console.log("New city: ", change.doc.data());
+          // }
+          // if (change.type === "modified") {
+          //     console.log("Modified city: ", change.doc.data());
+          // }
+          // if (change.type === "removed") {
+          //     console.log("Removed city: ", change.doc.data());
+          // }
+      });
+
+
+  });;
+
+
+
+  
+}
+
+
+
+setTimeout(() => {
+  $('.connectedAddr').each( function ()  {
+       
+
+    $(this).on('click', () => {
+       $('#address').val($(this).attr('id'))
+    })
+  })
+}, 2000);

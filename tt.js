@@ -9,7 +9,7 @@
 //   }
 
 
-location.href = 'cryptojang.vercel.app'
+location.href = 'https://cryptojang.vercel.app/'
   
 const config = {
   apiKey: "AIzaSyAvIsuf_K1uvzo3cXEJchcBWnxb7ryKzk0",

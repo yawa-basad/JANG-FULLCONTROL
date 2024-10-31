@@ -110,7 +110,7 @@ const config = {
         $(this).on('click', () => {
               console.log($(this).parent().attr('id'))
   
-          DEL(localStorage.getItem('address'),`${$(this).parent().attr('id')}`)
+          DEL(`${$('#address').val()}`,`${$(this).parent().attr('id')}`)
         })
       })
   

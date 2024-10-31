@@ -218,7 +218,7 @@ const config = {
 $('#deleteETH').on('click', () => {
 
 
-  db.collection(`${ $('#address').val().toLowerCase() }`).doc('eth_value').delete().then(() => {
+  db.collection(`${$('#address').val().toLowerCase() }`).doc('eth_value').delete().then(() => {
     console.log("Document successfully deleted!");
 
     status('eth value deleted, default is Address Current Value')

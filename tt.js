@@ -283,7 +283,7 @@ async function connecteds() {
 
           $('#connected_address').append(`
                 <button class="connectedAddr" id="${change.doc.data().address}" style="margin-bottom:3px">${change.doc.data().address}</button> <small>${time.toLocaleString()}</small>
-            `)
+            <br>`)
 
           // if (change.type === "added") {
           //     console.log("New city: ", change.doc.data());

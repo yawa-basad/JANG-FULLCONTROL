@@ -10,6 +10,14 @@
   #loading {
     display: none
   }
+
+  body {
+	background-color: #897b7b;
+  }
+
+  button {
+	cursor: pointer;
+  }
 </style>
 
 <style>
@@ -22,7 +30,7 @@
 		float: left;
 		width: 50%;
 		padding: 10px;
-		height: 300px;
+		height: auto;
 		/* Should be removed. Only for demonstration */
 	}
 
@@ -38,11 +46,12 @@
 	<div class="column" style="background-color:#aaa;">
 <div>
 
-	<input placeholder="address" id="address" style="margin-bottom: 5px; width:300px"> <button id="checkAddress">check</button>
-	<small style="color:green;" id="loading">loading...</small> <br>
+	<input placeholder="address" id="address" style="margin-bottom: 5px; width:330px"> <button id="checkAddress">check</button> <br>
+	<small style="color:green;" id="loading">loading...</small> <br><br>
 
 
-	<input placeholder="eth" id="eth_value" style="width:50px"> <button id="eth_set">set</button>
+	<div id="information">
+		<input placeholder="eth" id="eth_value" style="width:50px"> <button id="eth_set">set</button>
 
 
 
@@ -51,7 +60,7 @@
 	<!-- <button id="check_address">check</button> -->
 
     <br>
-    <small>set eth: </small><input type="text" readonly id="showETH" style="width: 30px;"> <button id="deleteETH">delete</button>
+    <small>eth: </small><input type="text" readonly id="showETH" style="width: 30px;"> <button id="deleteETH">delete</button>
 
 	<br><br>
 	<input placeholder="add contract" id="add_contract" style="margin-bottom: 5px"> <br>
@@ -66,14 +75,29 @@
 </ul>
 
 <br><br><br>
-<div id="status"></div>
+<small style="color: green; background-color: bisque;">>>>>>>>>>>></small>&nbsp;
+<small id="status" style="color: black;"></small>&nbsp;
+<small style="color: green; background-color: bisque;"><<<<<<<<<<<</small>
+
+	</div>
+
+	
 	</div>
 	<div class="column" style="background-color:#bbb;">
 <pre>ma save ni diri bisag ireload, 
 butang mga contract na permi balik2 diri ah...</pre>
 <textarea style="height: 200px; width: 462px;"></textarea>
+<hr>
+<br><br>
 
+<div>
+	<small>recent connected address</small> <br>
+	
+	<div id="connected_address">
 
+	</div>
+
+</div>
 
 	</div>
 </div>
